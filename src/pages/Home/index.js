@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
 
       PushNotification.localNotification({
         /* Android Only Properties */
-        channelId: 'scaniadigital', // (required) channelId, if the channel doesn't exist, notification will not trigger.
+        channelId: 'musimitrajaya', // (required) channelId, if the channel doesn't exist, notification will not trigger.
         title: obj.notification.title, // (optional)
         message: obj.notification.body, // (required)
       });
@@ -90,7 +90,7 @@ export default function Home({ navigation }) {
           padding: 5,
           borderRadius: 10,
           width: windowWidth / 2.5,
-          height: windowHeight / 5,
+          height: windowHeight / 5.3,
           elevation: 5,
           justifyContent: 'center',
         }}>
@@ -136,9 +136,9 @@ export default function Home({ navigation }) {
 
       <View
         style={{
+          backgroundColor: colors.primary,
           height: windowHeight / 9,
           padding: 10,
-          marginBottom: 20,
           flexDirection: 'row',
         }}>
 
@@ -147,13 +147,13 @@ export default function Home({ navigation }) {
           <Text
             style={{
               fontSize: windowWidth / 30,
-              color: colors.primary,
+              color: colors.white,
               fontFamily: fonts.secondary[600],
             }}>
             Welcome, <Text
               style={{
                 fontSize: windowWidth / 30,
-                color: colors.black,
+                color: colors.white,
                 fontFamily: fonts.secondary[600],
               }}>
               {user.nama_lengkap}
@@ -162,10 +162,10 @@ export default function Home({ navigation }) {
           <Text
             style={{
               fontSize: windowWidth / 20,
-              color: colors.tertiary,
+              color: colors.white,
               fontFamily: fonts.secondary[600],
             }}>
-            Scania Digital Agency
+            {user.nama_departement}
           </Text>
 
         </View>
@@ -173,12 +173,73 @@ export default function Home({ navigation }) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-          <Image source={require('../../assets/logo.png')} style={{
+          <Image source={require('../../assets/avatar.png')} style={{
             width: 50,
             resizeMode: 'contain'
           }} />
         </TouchableOpacity>
+
       </View>
+      <View style={{
+        flexDirection: 'row',
+        backgroundColor: colors.primary,
+        padding: 10,
+        marginBottom: 10,
+      }} >
+        <View style={{
+          flex: 1,
+          borderTopLeftRadius: 10,
+          borderBottomLeftRadius: 10,
+          backgroundColor: colors.white,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 5,
+        }}>
+          <Text style={{
+            fontSize: windowWidth / 10,
+            color: colors.tertiary,
+            fontFamily: fonts.secondary[600],
+          }}
+          >24</Text>
+          <Text style={{
+            fontSize: windowWidth / 25,
+            color: colors.tertiary,
+            fontFamily: fonts.secondary[400],
+            textAlign: 'center'
+          }}>Daily Activity GE - ACI -MMJ Road Matenance</Text>
+        </View>
+        <View style={{
+          flex: 0.01,
+          backgroundColor: colors.primary,
+          marginHorizontal: 0.5,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}></View>
+        <View style={{
+          flex: 1,
+          borderTopRightRadius: 10,
+          borderBottomRightRadius: 10,
+          backgroundColor: colors.white,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 5,
+        }}>
+          <Text style={{
+            fontSize: windowWidth / 10,
+            color: colors.tertiary,
+            fontFamily: fonts.secondary[600],
+          }}
+          >4</Text>
+          <Text style={{
+            fontSize: windowWidth / 25,
+            color: colors.tertiary,
+            fontFamily: fonts.secondary[400],
+            textAlign: 'center'
+          }}> Activity GE - ACI -MMJ Rock Layering</Text>
+        </View>
+      </View>
+
+
 
       <MyCarouser />
       <View
@@ -189,17 +250,16 @@ export default function Home({ navigation }) {
         }}>
         <DataKategori
           warna={colors.secondary}
-          onPress={() => navigation.navigate('Menu1', user)}
-          icon="map"
-          nama="Kondisi Jalur"
-          nama2="Melihat koridor"
+          onPress={() => navigation.navigate('AddLaporanDaily', user)}
+          icon="duplicate"
+          nama="Tambah Laporan Daily Activity"
+
         />
         <DataKategori
           warna={colors.secondary}
-          onPress={() => navigation.navigate('Menu2')}
-          icon="bus"
-          nama="Refresh Knowladge"
-          nama2="Menu training"
+          onPress={() => navigation.navigate('DaftarLaporanDaily')}
+          icon="list"
+          nama="Daftar Laporan Daily Activity"
         />
       </View>
 
@@ -211,28 +271,20 @@ export default function Home({ navigation }) {
         }}>
         <DataKategori
           warna={colors.secondary}
-          onPress={() => navigation.navigate('Menu3')}
+          onPress={() => navigation.navigate('AddLaporan')}
           icon="duplicate"
-          nama="Laporan Pemeriksaan"
-          nama2="Input setelah operasi"
+          nama="Tambah Laporan Activity"
         />
         <DataKategori
           warna={colors.secondary}
           onPress={() => {
-            if (user.nama_departement == "CHECKER") {
-              navigation.navigate('Menu4')
-            } else if (user.nama_departement == "TEKNISI") {
-              navigation.navigate('Menu5')
-            } else {
-              showMessage({
-                message: 'Menu khusus checker dan teknisi !'
-              })
-            }
+
+            navigation.navigate('DaftarLaporan')
+
           }
           }
-          icon="file-tray-stacked"
-          nama="Laporan Evdal"
-          nama2="Input laporan Evdal"
+          icon="list"
+          nama="Daftar Laporan Activity"
         />
       </View>
 

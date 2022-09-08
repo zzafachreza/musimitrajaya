@@ -62,9 +62,9 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
         } else if (label === 'Evdal') {
           iconName = 'file-tray-stacked-outline';
           Newlabel = 'Evdal';
-        } else if (label === 'Split') {
-          iconName = 'folder-open-outline';
-          Newlabel = 'Split';
+        } else if (label === 'Account') {
+          iconName = 'person-outline';
+          Newlabel = 'Akun';
         } else if (label === 'History') {
           iconName = 'file-tray-stacked-outline';
           Newlabel = 'History';

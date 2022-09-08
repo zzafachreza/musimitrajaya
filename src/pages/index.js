@@ -20,6 +20,26 @@ import Menu6 from './Menu6';
 import MenuSplit from './MenuSplit';
 import MenuDone from './MenuDone';
 import Download from './Download';
+// new
+import AddLaporan from './AddLaporan';
+import AddLaporan1 from './AddLaporan1';
+import AddLaporanList from './AddLaporanList';
+import AddLaporan2 from './AddLaporan2';
+import AddLaporan3 from './AddLaporan3';
+import AddLaporan4 from './AddLaporan4';
+import AddLaporan5 from './AddLaporan5';
+import AddLaporanDaily from './AddLaporanDaily';
+import AddLaporanDailyList from './AddLaporanDailyList';
+import DaftarLaporan from './DaftarLaporan';
+import AddLaporanDaily1 from './AddLaporanDaily1';
+import AddLaporanDaily2 from './AddLaporanDaily2';
+import AddLaporanDaily3 from './AddLaporanDaily3';
+import AddLaporanDaily4 from './AddLaporanDaily4';
+import AddLaporanDaily5 from './AddLaporanDaily5';
+import DaftarLaporanDaily from './DaftarLaporanDaily';
+
+// new
+
 
 
 
@@ -50,5 +70,25 @@ export {
   Menu6,
   MenuSplit,
   MenuDone,
-  Download
+  Download,
+  // new
+  AddLaporan,
+  AddLaporanList,
+  AddLaporan1,
+  AddLaporan2,
+  AddLaporan3,
+  AddLaporan4,
+  AddLaporan5,
+  DaftarLaporan,
+
+
+
+  AddLaporanDaily,
+  AddLaporanDailyList,
+  AddLaporanDaily1,
+  AddLaporanDaily2,
+  AddLaporanDaily3,
+  AddLaporanDaily4,
+  AddLaporanDaily5,
+  DaftarLaporanDaily
 };

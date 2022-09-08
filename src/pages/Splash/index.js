@@ -43,23 +43,18 @@ export default function Splash({ navigation }) {
         // console.log('beum login');
 
         setTimeout(() => {
-          navigation.replace('GetStarted');
+          navigation.replace('Login');
         }, 1500);
       } else {
         console.log('sudah login logon');
 
+
+
         setTimeout(() => {
-          axios.post(urlAPI + '/1cek_monitoring.php', {
-            fid_user: res.id
-          }).then(zz => {
-            console.warn(zz.data);
-            if (zz.data == 200) {
-              navigation.replace('MainApp');
-            } else {
-              navigation.replace('Menu0');
-            }
-          })
+          navigation.replace('MainApp');
         }, 1500);
+
+
       }
     });
   }, []);

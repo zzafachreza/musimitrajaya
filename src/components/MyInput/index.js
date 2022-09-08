@@ -8,6 +8,8 @@ import { TextInput } from 'react-native-gesture-handler';
 export default function MyInput({
   onFocus,
   label,
+  icon = true,
+  maxLength,
   iconname,
   onChangeText,
   value,
@@ -29,32 +31,21 @@ export default function MyInput({
           alignItems: 'center',
           paddingVertical: 5,
         }}>
-        <Icon type="ionicon" name={iconname} color={colorIcon} size={16} />
+        {icon && <Icon type="ionicon" name={iconname} color={colorIcon} size={16} />}
         <Text
           style={{
             fontFamily: fonts.secondary[600],
-            color: colors.primary,
-            left: 10,
+            color: colors.black,
+            left: icon ? 10 : 5,
             fontSize: 12,
             ...styleLabel,
           }}>
           {label}
         </Text>
       </View>
-      {label2 && (
-        <Text
-          style={{
-            fontFamily: fonts.secondary[600],
-            color: colors.primary,
-            left: 10,
-            fontSize: 12,
-            marginVertical: 1,
-            ...styleLabel,
-          }}>
-          {label2}
-        </Text>
-      )}
+
       <TextInput
+        maxLength={maxLength}
         multiline={multiline}
         autoFocus={autoFocus}
         onFocus={onFocus}
@@ -65,9 +56,10 @@ export default function MyInput({
         onChangeText={onChangeText}
         autoCapitalize="none"
         style={{
+          backgroundColor: colors.secondary,
           borderColor: colors.primary,
           borderRadius: 10,
-          borderWidth: 1,
+          // borderWidth: 1,
           paddingLeft: 10,
           color: colors.black,
           fontSize: 12,

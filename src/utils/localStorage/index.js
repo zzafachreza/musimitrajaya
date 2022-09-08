@@ -20,4 +20,4 @@ export const getData = async key => {
 };
 
 
-export const urlAPI = 'https://scaniadigital.zavalabs.com/api';
+export const urlAPI = 'https://musimitrajaya.zavalabs.com/api/';

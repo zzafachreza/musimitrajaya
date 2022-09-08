@@ -13,7 +13,31 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
 import { colors } from '../utils/colors';
 import { color } from 'react-native-reanimated';
-import { Account, Download, EditProfile, GetStarted, Home, Login, Menu0, Menu1, Menu1_detail, Menu2, Menu2_detail, Menu3, Menu4, Menu5, Menu5_detail, Menu6, MenuDone, MenuSlp, MenuSplit, Register, Splash, Success } from '../pages';
+import {
+  Account, Download, EditProfile, GetStarted, Home, Login, Menu0, Menu1, Menu1_detail, Menu2, Menu2_detail, Menu3, Menu4, Menu5, Menu5_detail, Menu6, MenuDone, MenuSlp, MenuSplit, Register, Splash, Success,
+
+  AddLaporan,
+  AddLaporanList,
+  AddLaporan1,
+  AddLaporan2,
+  AddLaporan3,
+  AddLaporan4,
+  AddLaporan5,
+  DaftarLaporan,
+
+
+
+  AddLaporanDaily,
+  AddLaporanDailyList,
+  AddLaporanDaily1,
+  AddLaporanDaily2,
+  AddLaporanDaily3,
+  AddLaporanDaily4,
+  AddLaporanDaily5,
+  DaftarLaporanDaily
+
+
+} from '../pages';
 import Monitoring from '../pages/Monitoring';
 
 const Tab = createBottomTabNavigator();
@@ -23,11 +47,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator tabBar={props => <BottomNavigator {...props} />}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Split" component={MenuSplit} />
-      <Tab.Screen name="Evdal" component={MenuDone} />
-      {/*<Tab.Screen name="Cart" component={Cart} />  */}
-      {/* <Tab.Screen name="Notifikasi" component={Notifikasi} /> */}
-      <Tab.Screen name="Monitoring" component={Monitoring} />
+      <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
   );
 };
@@ -35,6 +55,135 @@ const MainApp = () => {
 export default function Router() {
   return (
     <Stack.Navigator initialRouteName={'Splash'}>
+
+      {/* new */}
+
+      <Stack.Screen
+        name="AddLaporan"
+        component={AddLaporan}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="DaftarLaporan"
+        component={DaftarLaporan}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporanList"
+        component={AddLaporanList}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporan1"
+        component={AddLaporan1}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporan2"
+        component={AddLaporan2}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporan3"
+        component={AddLaporan3}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+
+      <Stack.Screen
+        name="AddLaporan4"
+        component={AddLaporan4}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AddLaporan5"
+        component={AddLaporan5}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="DaftarLaporanDaily"
+        component={DaftarLaporanDaily}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporanDaily"
+        component={AddLaporanDaily}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AddLaporanDailyList"
+        component={AddLaporanDailyList}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AddLaporanDaily1"
+        component={AddLaporanDaily1}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AddLaporanDaily2"
+        component={AddLaporanDaily2}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="AddLaporanDaily3"
+        component={AddLaporanDaily3}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+
+
+
+
+
+
       <Stack.Screen
         name="Splash"
         component={Splash}

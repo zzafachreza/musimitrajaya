@@ -118,7 +118,7 @@ export default function Register({ navigation }) {
 
   useEffect(() => {
 
-    axios.post(urlAPI + '/1data_departement.php').then(d => {
+    axios.post(urlAPI + '1data_departement.php').then(d => {
       console.log('dep', d.data);
       setDept(d.data);
     })

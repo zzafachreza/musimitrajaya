@@ -26,7 +26,7 @@ export default function Login({ navigation }) {
 
   const [token, setToken] = useState('');
   const [data, setData] = useState({
-    nik: '',
+    email: '',
     password: '',
   });
 
@@ -39,13 +39,13 @@ export default function Login({ navigation }) {
 
   // login ok
   const masuk = () => {
-    if (data.nik.length === 0 && data.password.length === 0) {
+    if (data.email.length === 0 && data.password.length === 0) {
       showMessage({
-        message: 'Maaf nik dan Password masih kosong !',
+        message: 'Maaf email dan Password masih kosong !',
       });
-    } else if (data.nik.length === 0) {
+    } else if (data.email.length === 0) {
       showMessage({
-        message: 'Maaf nik masih kosong !',
+        message: 'Maaf email masih kosong !',
       });
     } else if (data.password.length === 0) {
       showMessage({
@@ -56,7 +56,7 @@ export default function Login({ navigation }) {
       console.log(data);
       setTimeout(() => {
         axios
-          .post(urlAPI + '/login.php', data)
+          .post(urlAPI + 'login.php', data)
           .then(res => {
             console.log(res.data);
             setLoading(false);
@@ -68,7 +68,7 @@ export default function Login({ navigation }) {
             } else {
               storeData('user', res.data);
               axios
-                .post(urlAPI + '/update_token.php', {
+                .post(urlAPI + 'update_token.php', {
                   id_member: res.data.id,
                   token: token,
                 })
@@ -77,16 +77,11 @@ export default function Login({ navigation }) {
                 });
 
 
-              axios.post(urlAPI + '/1cek_monitoring.php', {
-                fid_user: res.data.id
-              }).then(zz => {
-                console.warn(zz.data);
-                if (zz.data == 200) {
-                  navigation.replace('MainApp');
-                } else {
-                  navigation.replace('Menu0');
-                }
-              })
+
+
+              navigation.replace('MainApp');
+
+
 
 
 
@@ -118,32 +113,37 @@ export default function Login({ navigation }) {
             source={require('../../assets/logo.png')}
             style={{
               resizeMode: 'contain',
-              width: windowWidth
+              width: windowWidth - 200
             }}
           />
         </View>
         <View style={styles.page}>
           <Text
             style={{
+              fontFamily: fonts.secondary[600],
+              fontSize: windowWidth / 20,
+              color: colors.black,
+            }}>
+            LOGIN
+          </Text>
+          <Text
+            style={{
               fontFamily: fonts.secondary[400],
               fontSize: windowWidth / 20,
               color: colors.black,
-              // maxWidth: 230,
-              textAlign: 'center',
             }}>
-            Silahkan login untuk masuk ke aplikasi
+            Silahkan login untuk melanjutkan
           </Text>
 
           <MyGap jarak={20} />
           <MyInput
-            label="NRP"
-            iconname="card"
-            keyboardType="number-pad"
-            value={data.nik}
+            label="Email"
+            iconname="mail"
+            value={data.email}
             onChangeText={value =>
               setData({
                 ...data,
-                nik: value,
+                email: value,
               })
             }
           />

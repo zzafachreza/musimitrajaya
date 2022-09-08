@@ -70,7 +70,7 @@ export default function Account({ navigation, route }) {
                   fontFamily: fonts.secondary[600],
                   color: colors.black,
                 }}>
-                NRP
+                NIK
               </Text>
               <Text
                 style={{
