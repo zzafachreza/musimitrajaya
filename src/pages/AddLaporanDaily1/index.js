@@ -19,7 +19,7 @@ import { fonts, windowWidth } from '../../utils/fonts';
 import { storeData, getData, urlAPI } from '../../utils/localStorage';
 import { Icon } from 'react-native-elements';
 import axios from 'axios';
-import { MyButton, MyGap, MyInput } from '../../components';
+import { MyButton, MyGap, MyInput, MyPicker } from '../../components';
 import { showMessage } from 'react-native-flash-message';
 import DatePicker, { getFormatedDate } from 'react-native-modern-datepicker';
 import { maskJs, maskCurrency } from 'mask-js';
@@ -27,8 +27,23 @@ import { maskJs, maskCurrency } from 'mask-js';
 export default function ({ navigation, route }) {
     const [loading, setLoading] = useState(false);
     const [kirim, setKirim] = useState({
-        kode: route.params.kode
+        kode: route.params.kode,
+        nama_material: 'Batu BC'
     });
+
+
+    const _material = [
+        { label: 'Batu BC', value: 'Batu BC' },
+        { label: 'Batu 3/5', value: 'Batu 3/5' },
+        { label: 'Batu 5/7', value: 'Batu 5/7' },
+        { label: 'Soil', value: 'Soil' },
+        { label: 'Clay', value: 'Clay' },
+        { label: 'Mix Material', value: 'Mix Material' },
+        { label: 'Fly Ash', value: 'Fly Ash' },
+        { label: 'Bottom Ash', value: 'Bottom Ash' },
+        { label: 'Other', value: 'Other' },
+
+    ]
 
     const sendServer = () => {
         setLoading(true);
@@ -82,10 +97,11 @@ export default function ({ navigation, route }) {
 
 
 
-                <MyInput icon={false} label="Nama Material" onChangeText={x => setKirim({
+                <MyPicker label="Material" onValueChange={x => setKirim({
                     ...kirim,
                     nama_material: x
-                })} />
+                })} data={_material} />
+
 
                 <MyInput multiline icon={false} label="Keterangan" onChangeText={x => setKirim({
                     ...kirim,

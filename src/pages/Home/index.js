@@ -28,6 +28,10 @@ export default function Home({ navigation }) {
   const [token, setToken] = useState('');
 
   const isFocused = useIsFocused();
+  const [laporan, setLaporan] = useState({
+    daily: 0,
+    normal: 0,
+  })
 
   useEffect(() => {
 
@@ -56,6 +60,14 @@ export default function Home({ navigation }) {
   const __getDataUserInfo = () => {
     getData('user').then(users => {
       setUser(users);
+
+      axios.post(urlAPI + 'v1_data_info.php', {
+        fid_user: users.id
+      }).then(zz => {
+        // console.warn('ZZZ', zz.data)
+        setLaporan(zz.data)
+      })
+
       getData('token').then(res => {
         console.log('data token,', res);
         setToken(res.token);
@@ -200,7 +212,7 @@ export default function Home({ navigation }) {
             color: colors.tertiary,
             fontFamily: fonts.secondary[600],
           }}
-          >24</Text>
+          >{laporan.daily}</Text>
           <Text style={{
             fontSize: windowWidth / 25,
             color: colors.tertiary,
@@ -229,7 +241,7 @@ export default function Home({ navigation }) {
             color: colors.tertiary,
             fontFamily: fonts.secondary[600],
           }}
-          >4</Text>
+          >{laporan.normal}</Text>
           <Text style={{
             fontSize: windowWidth / 25,
             color: colors.tertiary,

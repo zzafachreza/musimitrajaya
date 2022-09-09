@@ -19,7 +19,7 @@ import { fonts, windowWidth } from '../../utils/fonts';
 import { storeData, getData, urlAPI } from '../../utils/localStorage';
 import { Icon } from 'react-native-elements';
 import axios from 'axios';
-import { MyButton, MyGap, MyInput } from '../../components';
+import { MyButton, MyGap, MyInput, MyPicker } from '../../components';
 import { showMessage } from 'react-native-flash-message';
 import DatePicker, { getFormatedDate } from 'react-native-modern-datepicker';
 import { maskJs, maskCurrency } from 'mask-js';
@@ -27,7 +27,8 @@ import { maskJs, maskCurrency } from 'mask-js';
 export default function ({ navigation, route }) {
     const [loading, setLoading] = useState(false);
     const [kirim, setKirim] = useState({
-        kode: route.params.kode
+        kode: route.params.kode,
+        cuaca: 'Cerah'
     });
 
     const sendServer = () => {
@@ -107,10 +108,32 @@ export default function ({ navigation, route }) {
 
                 </View>
 
-                <MyInput icon={false} label="Cuaca" onChangeText={x => setKirim({
+
+                <MyPicker label="Cuaca" onValueChange={x => setKirim({
                     ...kirim,
                     cuaca: x
-                })} />
+                })} data={[
+                    {
+                        value: 'Cerah',
+                        label: 'Cerah'
+                    },
+                    {
+                        value: 'Berawan',
+                        label: 'Berawan'
+                    }, {
+                        value: 'Hujan',
+                        label: 'Hujan'
+                    },
+                    {
+                        value: 'Basah',
+                        label: 'Basah'
+                    },
+                    {
+                        value: 'Kering',
+                        label: 'Kering'
+                    }
+                ]} />
+
                 <MyGap jarak={20} />
 
 

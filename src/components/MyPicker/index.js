@@ -32,36 +32,25 @@ export default function MyPicker({
         <Text
           style={{
             fontFamily: fonts.secondary[600],
-            color: colors.primary,
-            left: 10,
-            fontSize: 16,
+            color: colors.black,
+            left: 0,
+            fontSize: 12,
             ...styleLabel,
           }}>
           {label}
         </Text>
       </View>
-      {label2 && (
-        <Text
-          style={{
-            fontFamily: fonts.secondary[600],
-            color: colors.primary,
-            left: 10,
-            fontSize: 14,
-            marginVertical: 1,
-            ...styleLabel,
-          }}>
-          {label2}
-        </Text>
-      )}
+
       <View style={{
-        borderWidth: 1,
+        backgroundColor: colors.secondary,
         borderRadius: 10,
         fontFamily: fonts.secondary[600],
         borderColor: colors.primary,
       }}>
-        <Picker selectedValue={value} onValueChange={onValueChange}>
+        <Picker style={{ height: 50, transform: [{ scale: 0.9 }] }}
+          selectedValue={value} onValueChange={onValueChange}>
           {data.map(item => {
-            return <Picker.Item value={item.value} label={item.label} />;
+            return <Picker.Item textStyle={{ fontSize: 12 }} value={item.value} label={item.label} />;
           })}
         </Picker>
       </View>
