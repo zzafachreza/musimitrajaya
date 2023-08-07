@@ -139,6 +139,7 @@ export default function Login({ navigation }) {
           <MyInput
             label="Email"
             iconname="mail"
+            placeholder="Masukan email Anda"
             value={data.email}
             onChangeText={value =>
               setData({
@@ -150,8 +151,9 @@ export default function Login({ navigation }) {
 
           <MyGap jarak={20} />
           <MyInput
+            placeholder="Masukan password Anda"
             label="Password"
-            iconname="key"
+            iconname="lock-closed"
             secureTextEntry
             onChangeText={value =>
               setData({
